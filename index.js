@@ -124,6 +124,8 @@ const keys = {
         pressed: false
     }
 }
+
+//function for responsive collision
 function rectangularCollision({rectangle1, rectangle2}) {
     return (
         rectangle1.attackBox.position.x + rectangle1.attackBox.width >=
@@ -135,6 +137,27 @@ function rectangularCollision({rectangle1, rectangle2}) {
         rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
     )
 }
+
+//function for responsive game timer/countdown
+
+let timer = 5
+function decreaseTimer(){
+    if(timer>0) {
+        setTimeout(decreaseTimer, 1000)
+        timer--
+        document.querySelector('#timer').innerHTML = timer
+    }
+    if(timer  === 0 ) {
+        if (player.health === enemy.health) {
+            document.querySelector('#displayText').innerHTML = 'Tie'
+            document.querySelector('#displayText').style.display = 'flex'
+        } else if (player.health > enemy.health) {
+            document.querySelector('#displayText').innerHTML = 'Player 1 Wins'
+            document.querySelector('#displayText').style.display = 'flex'
+        }
+    }
+}
+decreaseTimer()
 
 //animation loop
 function animate() {
