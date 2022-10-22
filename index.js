@@ -64,7 +64,7 @@ class Sprite {
 
     attack() {
         this.isAttacking = true
-        setTimeout( => {
+        setTimeout(() => {
             this.isAttacking = false
         }, 100)
     }
