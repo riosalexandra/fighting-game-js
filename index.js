@@ -37,12 +37,15 @@ const player = new Fighter({
     },
     velocity: {
         X: 0,
-        y: 10
+        y: 0
     },
     offset: {
         x: 0,
         y: 0
-    }
+    },
+    imageSrc: '.img/samuraiMack/Idle.png',
+    framesMax: 8,
+    scale: 2.5,
 })
 
 player.draw
